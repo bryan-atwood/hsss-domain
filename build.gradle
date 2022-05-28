@@ -1,0 +1,30 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.0'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'maven-publish'
+}
+
+group = 'com.highschoolsportsscores'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+publishing {
+	publications {
+		maven(MavenPublication) {
+			groupId = 'com.highschoolsportsscores'
+			artifactId = 'hsss-domain'
+			version = '0.0.1-SNAPSHOT'
+
+			from components.java
+		}
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
